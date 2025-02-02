@@ -4,6 +4,7 @@ import "dotenv/config";
 import connectDB from "./configs/db.js";
 import connectCloudinary from "./configs/cloudinary.js";
 import userRouter from "./routes/userRoute.js";
+import productRouter from "./routes/productRoute.js";
 
 // App Config
 const app = express();
@@ -13,7 +14,7 @@ const port = process.env.PORT || 3000;
 connectDB();
 
 // Connect Cloudinary
-connectCloudinary;
+connectCloudinary();
 
 // Middlewares
 app.use(express.json());
@@ -21,6 +22,7 @@ app.use(cors());
 
 // Api Endpoints
 app.use("/api/user", userRouter);
+app.use("/api/product", productRouter)
 
 app.get("/", (req, res) => {
   res.send("API WORKING");
