@@ -3,7 +3,6 @@ import { useState } from "react";
 import axios from "axios";
 import { backendUrl } from "../App";
 import { toast } from "react-toastify";
-import { useEffect } from "react";
 
 const Login = ({ setToken }) => {
   const [email, setEmail] = useState("");
@@ -27,10 +26,6 @@ const Login = ({ setToken }) => {
       toast.error(response.data.message);
     }
   };
-
-  useEffect(() => {
-    localStorage.setItem("token", token);
-  }, [token]);
 
   return (
     <div className="min-h-screen flex items-center justify-center w-full">
