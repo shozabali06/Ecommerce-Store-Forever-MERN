@@ -23,9 +23,15 @@ const Login = ({ setToken }) => {
       }
     } catch (error) {
       console.log(error);
-      toast.error(response.data.message);
+      toast.error(error.message);
     }
   };
+
+  // Set initial values for email and password
+  React.useEffect(() => {
+    setEmail("admin@example.com");
+    setPassword("admin1234");
+  }, []);
 
   return (
     <div className="min-h-screen flex items-center justify-center w-full">

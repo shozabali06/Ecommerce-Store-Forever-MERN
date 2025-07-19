@@ -59,7 +59,9 @@ const ShopContextProvider = ({ children }) => {
           if (cartItems[items][item] > 0) {
             totalCount += cartItems[items][item];
           }
-        } catch (error) {}
+        } catch (error) {
+          console.log("Error in getCartCount: ", error);
+        }
       }
     }
     return totalCount;
